@@ -1,0 +1,390 @@
+<!DOCTYPE html5>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu</title>
+  <link rel="stylesheet" href="../css/Menu.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="../bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/Empleado.css">
+  <link rel="stylesheet" href="../librerias/css/alertify.css">
+  <link rel="stylesheet" href="../librerias/css/themes/default.css">
+
+  <script src="../js/Metodos.js"></script>
+
+</head>
+<body>
+  <div class="row group">
+    <div class="col-sm-2">
+      <div id="sidebar">
+        <!--  <div class="toggle-btn">
+                    <span>&#9776;</span>
+                </div>-->
+        <ul>
+          <img src="../img/Logo.png" alt="" class="Logo">
+          <li class="Principal">Principal</li>
+          <li class="Empleados">Empleados</li>
+          <li class="Contratos">Contratos</li>
+          <li class="Proveedores">Proveedores</li>
+          <li>Configuracion</li>
+          <li class="Cerrar">Cerrar Sesion</li>
+        </ul>
+      </div>
+    </div>
+    <div id="table" class="col-sm-9">
+
+      
+      <!--  Se abre la Tabla
+            </div>-->
+    </div>
+    <!--  Editar Modal Empleado -->
+    <div class="modal fade" id="ModalEditar" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">Editar Registro</h5>
+          </div>
+          <div class="modal-body">
+            <label>Codigo</label>
+            <input type="text" class="form-control input sm" id="Id_Empleado" name="Id_Empleado" placeholder="Codigo"
+              value="" readonly="true">
+            <label>Nombre</label>
+            <input type="text" class="form-control input sm" id="Nombre" name="Nombre" placeholder="Nombre" value="">
+            <label>CC</label>
+            <input type="text" class="form-control input sm" id="CC" placeholder="Cedula">
+            <label>Direccion</label>
+            <input type="text" class="form-control input sm" id="Direccion" placeholder="Direccion">
+            <label>Telefono</label>
+            <input type="text" class="form-control input sm" id="Telefono" placeholder="Telefono">
+            <label>Celular</label>
+            <input type="text" class="form-control input sm" id="Celular" placeholder="Celular">
+            <label>Email</label>
+            <input type="text" class="form-control input sm" id="Email" placeholder="Email">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-success" id="EditarEmp">Actualizar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--  Editar Modal Proveedor -->
+    <div class="modal fade" id="ModalEditarProveedor" tabindex="-1" role="dialog"
+      aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">Editar Registro</h5>
+          </div>
+          <div class="modal-body">
+            <label>Codigo</label>
+            <input type="text" class="form-control input sm" id="Id_Proveedor" name="Id_Proveedor" placeholder="Codigo"
+              value="" readonly="true">
+            <label>Nombre</label>
+            <input type="text" class="form-control input sm" id="Nombre_Proveedor" name="Nombre" placeholder="Nombre"
+              value="">
+            <label>Nit</label>
+            <input type="text" class="form-control input sm" id="Nit_Proveedor" placeholder="Cedula" readonly="true">
+            <label>Direccion</label>
+            <input type="text" class="form-control input sm" id="Direccion1" name="Direccion" placeholder="Direccion">
+            <label>Telefono</label>
+            <input type="text" class="form-control input sm" id="Telefono1" placeholder="Telefono">
+            <label>Email</label>
+            <input type="text" class="form-control input sm" id="Email1" placeholder="Email">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-success" id="EditarProvn">Actualizar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--  Editar Modal Contrato -->
+    <div class="modal fade" id="ModalEditarCont" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">Editar Registro</h5>
+          </div>
+          <div class="modal-body">
+            <label>Codigo</label>
+            <input type="text" class="form-control input sm" id="Id_Contrato" name="Id_Contrato" placeholder="Codigo"
+              value="" readonly="true">
+            <label> Proveedor</label>
+            <select id="Lista_Nit" class="form-control">
+            </select>
+            <label> Numero Contrato</label>
+            <input type="text" class="form-control input sm" id="NumeroContrato" placeholder="NumeroContrato">
+            <label>Descripcion</label>
+            <input type="text" class="form-control input sm" id="Descripcion" placeholder="Descripcion">
+            <label>Fecha</label>
+            <input type="text" class="form-control input sm" id="Fecha" placeholder="Fecha">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-success" id="EditarContra">Actualizar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--  Nuevo Modal Empleado -->
+    <div class="modal fade" id="ModalNuevo" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">Nuevo Registro</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            </button>
+          </div>
+          <div class="modal-body">
+            <label>Nombre</label>
+            <input type="text" class="form-control input sm" id="NombreEmp" name="Nombre" placeholder="Nombre" value="">
+            <label>CC</label>
+            <input type="text" class="form-control input sm" id="CCEmp" placeholder="Cedula">
+            <label>Direccion</label>
+            <input type="text" class="form-control input sm" id="DireccionEmp" placeholder="Direccion">
+            <label>Telefono</label>
+            <input type="text" class="form-control input sm" id="TelefonoEmp" placeholder="Telefono">
+            <label>Celular</label>
+            <input type="text" class="form-control input sm" id="CelularEmp" placeholder="Celular">
+            <label>Email</label>
+            <input type="text" class="form-control input sm" id="EmailEmp" placeholder="Email">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-success" id="NuevoEmp" onclick="">Registrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!--  Nuevo Modal Contrato -->
+    <div class="modal fade" id="ModalNuevoCont" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">Nuevo Registro</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            </button>
+          </div>
+          <div class="modal-body">
+            <label> Proveedor</label>
+            <select id="Nit" class="form-control">
+            </select>
+            <label>Numero Contrato</label>
+            <input type="text" class="form-control input sm" id="NumeroContrato1" placeholder="Numero de Contrato">
+            <label>Descripcion</label>
+            <input type="text" class="form-control input sm" id="Descripcion1" placeholder="Descripcion">
+            <label>Fecha</label>
+            <input type="text" class="form-control input sm" id="Fecha1" placeholder="Fecha">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-success" id="nuevoCont">Registrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--  Nuevo Modal Proveedor -->
+    <div class="modal fade" id="ModalNuevoProv" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">Nuevo Registro</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            </button>
+          </div>
+          <div class="modal-body">
+            <label>Nombre</label>
+            <input type="text" class="form-control input sm" id="NombreProv" name="Nombre" placeholder="Nombre"
+              value="">
+            <label>Nit</label>
+            <input type="text" class="form-control input sm" id="NitProv" placeholder="Nit">
+            <label>Direccion </label>
+            <input type="text" class="form-control input sm" id="DireccionProvn" placeholder="Direccion">
+            <label>Telefono</label>
+            <input type="text" class="form-control input sm" id="TelefonoProv" placeholder="Telefono">
+            <label>Emali</label>
+            <input type="text" class="form-control input sm" id="EmailProv" placeholder="Emali">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-success" id="nuevoProv">Registrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!--  Modal Informe -->
+    <div class="modal fade" id="Modalformatoempleado" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">Informe de registros</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          </button>
+        </div>
+        <div class="modal-body">
+            <button type="button" class="btn btn-success" id="pdfempleado">PDF</button>
+            <button type="button" class="btn btn-success" id="planoepleado">PLANO</button>
+            <button type="button" class="btn btn-success" id="excelempleado">EXCEL</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--  Modal contrato -->
+  <div class="modal fade" id="Modalformatocontrato" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Informe de registros</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        </button>
+      </div>
+      <div class="modal-body">
+          <button type="button" class="btn btn-success" id="pdfcontrato">PDF</button>
+          <button type="button" class="btn btn-success" id="planocontrato">PLANO</button>
+          <button type="button" class="btn btn-success" id="excelcontrato">EXCEL</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--  Modal contrato -->
+<div class="modal fade" id="Modalformatoproveedor" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalCenterTitle">Informe de registros</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      </button>
+    </div>
+    <div class="modal-body">
+        <button type="button" class="btn btn-success" id="pdfproveedor">PDF</button>
+        <button type="button" class="btn btn-success" id="planoproveedor">PLANO</button>
+        <button type="button" class="btn btn-success" id="excelproveedor">EXCEL</button>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="../librerias/alertify.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"></script>
+    <script src="../js/Menu.js"></script>
+    <script src="../js/Funciones.js"></script>
+    <script src="../js/Metodos.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('#NuevoEmp').click(function () {
+          Nombre = $('#NombreEmp').val();
+          CC = $('#CCEmp').val();
+          Direccion = $('#DireccionEmp').val();
+          Telefono = $('#TelefonoEmp').val();
+          Celular = $('#CelularEmp').val();
+          Email = $('#EmailEmp').val();
+          NuevoEmp(Nombre, CC, Direccion, Telefono, Celular, Email);
+        });
+      });     
+    </script>
+<script type="text/javascript">
+  $(document).ready(function () {
+    $('#EditarEmp').click(function () {
+      Id_Empleado=$('#Id_Empleado').val();
+      Nombre = $('#Nombre').val();
+      CC = $('#CC').val();
+      Direccion = $('#Direccion').val();
+      Telefono = $('#Telefono').val();
+      Celular = $('#Celular').val();
+      Email = $('#Email').val();
+      EditarEmp(Id_Empleado,Nombre, CC, Direccion, Telefono, Celular, Email);
+    });
+  });
+</script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('#nuevoProv').click(function () {
+          NombreProv = $('#NombreProv').val();
+          NitProv = $('#NitProv').val();
+          DireccionProvn = $('#DireccionProvn').val();
+          TelefonoProv = $('#TelefonoProv').val();
+          EmailProv = $('#EmailProv').val();
+          nuevoProv(NombreProv, NitProv, DireccionProvn, TelefonoProv, EmailProv);
+        });
+      });
+    </script>
+        <script type="text/javascript">
+          $(document).ready(function () {
+            $('#EditarProvn').click(function () {
+              Id_Proveedor = $('#Id_Proveedor').val();
+              NombreProv = $('#Nombre_Proveedor').val();
+              NitProv = $('#Nit_Proveedor').val();
+              DireccionProvn = $('#Direccion1').val();
+              TelefonoProv = $('#Telefono1').val();
+              EmailProv = $('#Email1').val();
+              EditarProvn(Id_Proveedor,NombreProv, NitProv, DireccionProvn, TelefonoProv, EmailProv);
+            });
+          });
+        </script>
+    </script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('#nuevoCont').click(function () {
+          Nit = $('#Nit').val();
+          NumeroContrato = $('#NumeroContrato1').val();
+          Descripcion = $('#Descripcion1').val();
+          Fecha = $('#Fecha1').val();
+          nuevoCont(Nit,NumeroContrato,Descripcion,Fecha);
+        });
+      });
+    </script>
+   <script type="text/javascript">
+    $(document).ready(function () {
+      $('#EditarContra').click(function () {
+        id = $('#Id_Contrato').val();
+        Nit = $('#Lista_Nit').val();
+        NumeroContrato = $('#NumeroContrato').val();
+        Descripcion = $('#Descripcion').val();
+        Fecha = $('#Fecha').val();
+        EditarContra(id,Nit,NumeroContrato,Descripcion,Fecha);
+      });
+    });
+  </script>
+
+</body>
+</html>
+
