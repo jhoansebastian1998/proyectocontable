@@ -1,0 +1,314 @@
+/*
+    DEMO STYLE
+*/
+
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #fafafa;
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #999;
+}
+
+a,
+a:hover,
+a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.navbar {
+    padding: 15px 10px;
+    background: #fff;
+    border: none;
+    border-radius: 0;
+    margin-bottom: 40px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-btn {
+    box-shadow: none;
+    outline: none !important;
+    border: none;
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px dashed #ddd;
+    margin: 40px 0;
+}
+
+
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+#fondo_wrapper {
+    background-image: url("../img/principal.jpeg");
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    height: auto;
+}
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    background: rgb(36, 77, 190);
+    color: rgb(15, 15, 15);
+    transition: all 0.3s;
+}
+
+#sidebar.active {
+    margin-left: -250px;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: rgb(36, 77, 190);
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid rgb(36, 77, 190);
+}
+
+#sidebar ul li a:hover {
+    color: black;
+    background: blue;
+}
+
+#sidebar ul li.active:hover>a,
+a[aria-expanded="true"] {
+    color: black;
+    /*background: rgb(36, 77, 190);*/
+    background: white;
+}
+
+#sidebar ul li.active>a,
+a[aria-expanded="true"] {
+    color: black;
+    /*background: rgb(36, 77, 190);*/
+    background: blue;
+}
+
+#sidebarCollapse:hover {
+    background: grey;
+    transition: all 01s;
+}
+
+.nav-item:hover {
+    background: grey;
+    transition: all 01s;
+}
+
+#sidebar ul p {
+    color: #fff;
+    padding: 10px;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: rgb(36, 77, 190);
+}
+
+ul.CTAs {
+    padding: 20px;
+}
+
+ul.CTAs a {
+    text-align: center;
+    font-size: 0.9em !important;
+    display: block;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+a.download {
+    background: #fff;
+    color: #7386D5;
+}
+
+a.article,
+a.article:hover {
+    background: #6d7fcc !important;
+    color: #fff !important;
+}
+
+
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+
+#content {
+    width: 100%;
+    padding: 20px;
+    min-height: 100vh;
+    transition: all 0.3s;
+}
+
+#sombra {
+    box-shadow: 15px 15px 15px 5px black;
+}
+
+
+/* ---------------------------------------------------
+    MEDIAQUERIES
+----------------------------------------------------- */
+
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+    #sidebarCollapse span {
+        display: none;
+    }
+}
+
+#radioDesing {
+    display: inline-block;
+    cursor: pointer;
+    color: rgb(23, 93, 197);
+    position: relative;
+    padding: 5px 15px 5px 51px;
+    font-size: 1em;
+    border-radius: 5px;
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+#radioDesing label:hover {
+    background: #008fe0(255, 65, 54, 0.1);
+}
+
+#radioDesing label:before {
+    content: "";
+    display: inline-block;
+    width: 17px;
+    height: 17px;
+    position: absolute;
+    left: 15px;
+    border-radius: 50%;
+    background: none;
+    border: 3px solid #008fe0;
+}
+
+#radioDesing input[type="radio"] {
+    display: none;
+}
+
+#radioDesing>div {
+    padding: 20px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+#radioDesing input[type="radio"] {
+    display: none;
+}
+
+#radioDesing input[type="radio"]:checked+label:before {
+    display: none;
+}
+
+#radioDesing input[type="radio"]:checked+label {
+    padding: 5px 15px;
+    background: #008fe0;
+    border-radius: 2px;
+    color: #fff;
+}
+
+
+/**/
+
+#radioUpdate {
+    display: inline-block;
+    cursor: pointer;
+    color: rgb(13, 151, 75);
+    position: relative;
+    padding: 5px 15px 5px 51px;
+    font-size: 1em;
+    border-radius: 5px;
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+#radioUpdate label {
+    background: white(13, 151, 75);
+}
+
+#Admin1 {
+    cursor: hand;
+}
+
+#radioUpdate label:before {
+    content: "";
+    display: inline-block;
+    width: 17px;
+    height: 17px;
+    position: absolute;
+    left: 15px;
+    border-radius: 50%;
+    background: none;
+    border: 3px solid rgb(13, 151, 75);
+}
+
+#radioUpdate input[type="radio"] {
+    display: none;
+}
+
+#radioUpdate>div {
+    padding: 20px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+#radioUpdate input[type="radio"] {
+    display: none;
+}
+
+#radioUpdate input[type="radio"]:checked+label:before {
+    display: none;
+}
+
+#radioUpdate input[type="radio"]:checked+label {
+    padding: 5px 15px;
+    background: rgb(13, 151, 75);
+    border-radius: 2px;
+    color: #fff;
+}
